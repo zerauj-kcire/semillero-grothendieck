@@ -1,0 +1,329 @@
+\documentclass[8pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{babel}
+\usepackage{xskak}
+\usepackage{chessboard}
+\usepackage{tcolorbox} 
+\usepackage{fontawesome5} 
+\usepackage{bbding}
+\usepackage{fourier-orns}
+\usepackage{mathrsfs}
+\usepackage[shortlabels]{enumitem}
+\usepackage{enumerate} 
+\usepackage{booktabs}
+\usepackage{array}
+
+% Tamaño de cada mini-página (1/8 de hoja oficio de 21.6 x 34 cm)
+\usepackage[paperwidth=8.5cm, paperheight=10.8cm, margin=0.6cm]{geometry}
+\pagestyle{empty} % Quita los números de página grandes para ahorrar espacio
+
+\setlength{\columnsep}{1pt}
+
+\begin{document}
+
+% --- PÁGINA 1: PORTADA ---
+\begin{center}
+    \vspace*{-0.3cm}
+   {\fontsize{26}{28}\selectfont 
+    \textbf{El Semillero}\\[-4pt]
+    {\fontsize{20}{22}\selectfont \textbf{de}}\\[-3pt]
+    \textbf{Grothendieck}\par}
+
+\vspace{0.4cm}
+
+{\large\textit{``Récoltes et semailles''}}
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    % Marco invisible simétrico alrededor del centro del polígono (x = 0.05)
+    \useasboundingbox (-2.45,-2.1) rectangle (2.55,2.3);
+
+    % Definición de las raíces de P(z)
+    \coordinate (z1) at (-2.3, 0.8);
+    \coordinate (z2) at (-0.8, 1.8);
+    \coordinate (z3) at (2.1, 1.3);
+    \coordinate (z4) at (1.4, -0.9); % <-- MOVIDO A LA IZQUIERDA (De 2.4 a 1.4)
+    \coordinate (z5) at (-1.5, -1.6);
+
+    % Envolvente convexa en gris claro
+    \filldraw[fill=gray!15, draw=black, thick] 
+        (z1) -- (z2) -- (z3) -- (z4) -- (z5) -- cycle;
+
+    % Ejes del plano complejo (simétricos respecto al polígono)
+    \draw[->, thin, gray!70] (-2.8,0) -- (2.9,0) node[right, black] {\tiny $\mathrm{Re}$};
+    \draw[->, thin, gray!70] (0,-2.0) -- (0,2.2) node[above, black] {\tiny $\mathrm{Im}$};
+
+    % Raíces de P(z) (círculos negros sólidos)
+    \foreach \p/\pos/\nombre in {
+        z1/left/$z_1$, 
+        z2/above/$z_2$, 
+        z3/right/$z_3$, 
+        z4/below/$z_4$, % <-- CAMBIADO A BELOW para que no se encime con la línea
+        z5/below/$z_5$
+    }{
+        \fill[black] (\p) circle (2.2pt) node[\pos, black] {\footnotesize \nombre};
+    }
+
+    % Raíz interior extra de P(z)
+    \coordinate (z6) at (-0.6, 0.2);
+    \fill[black] (z6) circle (2.2pt) node[left, black] {\footnotesize $z_6$};
+
+    % Raíces de la derivada P'(z) (cuadrados blancos)
+    \coordinate (w1) at (-1.1, 0.6);
+    \coordinate (w2) at (0.5, 1.0);
+    \coordinate (w3) at (1.1, -0.1);
+    \coordinate (w4) at (-0.3, -0.7);
+    \coordinate (w5) at (0.1, 0.2);
+
+    \foreach \w in {w1, w2, w3, w4, w5}{
+        \filldraw[fill=white, draw=black, thick] (\w) ++(-1.8pt,-1.8pt) rectangle ++(3.6pt,3.6pt);
+    }
+
+    % Etiquetas
+    \node[anchor=west] at (1, 2.0) {\footnotesize $\mathrm{Conv}(\{z_{1},z_{2},\dots ,z_{6}\})$};
+    \node[black, above right] at (w2) {\small $w$};
+\end{tikzpicture}
+
+\end{center}
+
+
+\vspace{0.4cm}
+
+\noindent
+    {\fontfamily{ppl}\selectfont\footnotesize\bfseries
+\parbox[c]{1.7cm}{\centering\textbf{Esenciales del \\ Estudiante de Licenciatura}}%
+\hfill
+\parbox[c]{1.7cm}{\centering\textbf{Jardín de \\Espacios Topológicos}}%
+\hfill
+\parbox[c]{1.7cm}{\centering\textbf{El Teorema de \\Gauss-Lucas}}%
+\hfill
+\parbox[c]{1.7cm}{\centering\textbf{Matrices Simétricas y\\  Antisimétricas}}%
+}
+    \vspace{0.2cm}
+    \hrule
+    \vspace{0.2cm}
+    {\footnotesize Número 1 -- Noviembre 2026}
+\end{center}
+\vspace{0.5cm}
+
+
+\newpage
+
+% --- PÁGINA 2 ---
+\begin{center}
+    {\large \textbf{ $\S$ Recomendación}} {$~~$\small\faCoffee}
+\end{center}
+
+\vspace{0.14cm}
+
+\begin{center}
+    {\large\textit{\textbf{Essential Mathematics for Undergraduates:}}\\ \vspace{0.3cm}
+    {\small A Guided Approach to Algebra, Geometry,\\ Topology and Analysis.}}\\
+    \vspace{0.3cm}
+    {\small \textbf{Simon G. Chiossi}}
+    
+\end{center}
+
+\vspace{0.14cm}
+
+{\small \fontfamily{qpl}\selectfont Nuestra primera recomendación...}
+\vspace{0.2cm}
+
+\noindent
+{\small \fontfamily{jkp}\selectfont \textbf{Theorem 3.10$~~$(Gödel)} $~~$\textit{The negation of the axiom of choice $\neg \mathrm{AC}$ is not deducible in $\mathrm{ZF}$.}} 
+\vspace{0.2cm}
+
+{\small \fontfamily{qpl}\selectfont Por supuesto... $\dagger$}
+
+
+
+\newpage
+
+% --- PÁGINA 3 ---
+
+\begin{center}
+    {\large \textbf{ $\S$ Jardín de Estructuras}} {$~$\small\FourClowerSolid }
+\end{center}
+\vspace{0.14cm}
+
+\begin{center}
+    {\decothreeleft\large\textit{ Espacios Topológicos }\decothreeleft}
+\end{center}
+
+\vspace{0.15cm}
+
+{\fontsize{7}{5} \fontfamily{jkp}\selectfont  Recordemos que si $X$ es un conjunto... 
+Entre algunos ejemplos tenemos:}
+
+
+\begin{center}
+\footnotesize \fontfamily{jkp}\selectfont 
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{} c c m{2.55cm} @{}}
+\toprule
+\textbf{Espacio} & \textbf{Notación} & \multicolumn{1}{c}{\textbf{Descripción}} \\
+\midrule
+Discreto & $(X, \mathscr{P}(X))$ & \raggedright\arraybackslash\scriptsize Metrizable y $0$-dimensional. \\[4pt]
+Indiscreto & $(X, \{\varnothing, X\})$ & \raggedright\arraybackslash\scriptsize Pseudometrizable y compacto. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\newpage
+
+% --- PÁGINA 4 ---
+
+\begin{center}
+    {\large \textbf{ $\S$ El Teorema de Gauss-Lucas}} {$~$\small\faPenNib}
+\end{center}
+
+{\fontsize{7}{5} \fontfamily{jkp}\selectfont
+Bajo la influencia... 
+}
+\newpage
+
+% --- PÁGINA 5 ---
+{\fontsize{7}{5} \fontfamily{jkp}\selectfont
+Por otro lado... 
+}
+\vspace{0.2cm}
+
+\noindent
+{\small \fontfamily{jkp}\selectfont \textbf{Teorema$~$(Gauss-Lucas)} $~~$\textit{Sea $p\in \mathbb{C}[x]$ tal que $p\notin \mathbb{C}$. Entonces, para cada $w\in \mathbb{C}$ tal que $p'(w)=0$,
+$$w\in \mathrm{Conv}(\{z\in \mathbb{C}\mid p(z)=0\}).$$
+}} 
+\vspace{0.2cm}
+{\fontsize{7}{5} \fontfamily{jkp}\selectfont Véase... 
+
+{\footnotesize \fontfamily{jkp}\selectfont \textbf{Referencia.}
+Bak, J., y Newman, D. J. (2010). \textit{Complex analysis} (3.ª ed.). Springer.} 
+
+
+}
+\newpage
+
+% --- PÁGINA 6 ---
+
+\begin{center}
+    {\large \textbf{ $\S$ Ejercicio para el Lector}} {$~$\small\faGlasses}
+\end{center}
+
+\begin{center}
+    Álgebra Lineal $~~~~~~~~$ Dificultad: $\bullet \bullet \circ \circ\circ $
+\end{center}
+
+{\fontsize{7}{5} \fontfamily{jkp}\selectfont Dado $F$ un campo...
+}
+\newpage
+
+% --- PÁGINA 7 ---
+{\fontsize{7}{5} \fontfamily{jkp}\selectfont Observa además...
+}
+\vspace{0.2cm}
+
+\noindent
+{\small \fontfamily{jkp}\selectfont \textbf{Ejercicio.} $~$\textit{Sea $F$ un campo tal que $\mathrm{char}(F)\neq 2$. Si denotamos
+$$\mathcal{A}_{n}(F):=\{A\in \mathcal{M}_{n}(F)\mid A^{t}=-A\}$$
+entonces $\mathcal{M}_{n}(F)=\mathcal{S}_{n}(F)\oplus \mathcal{A}_{n}(F)$.}
+\vspace{0.1cm}
+
+\noindent
+\textbf{Hint.} \textit{Toma $A\in \mathcal{M}_{n}(F)$. ¿De que manera puedes construir una matriz simétrica unicamente en términos de $A$?} 
+}
+
+
+
+\newpage
+
+% --- PÁGINA 8: CONTRAPORTADA ---
+
+
+\begin{figure}[h]
+    \raggedleft
+    \vspace{1.3cm} % <-- Baja la imagen la distancia que quieras
+    % \includegraphics[width=0.5\linewidth]{Rama de cerezo en tinta gris minimalista.png}\hspace*{-1.8cm}
+    \label{fig:placeholder}
+    \vspace{-1.3cm} % <-- ¡TRUCO! Cancela el espacio para que lo de abajo NO se mueva
+\end{figure}
+
+
+\noindent
+\raisebox{-4.7cm}[0pt][0pt]{%
+    % \hspace*{-2cm}\reflectbox{\includegraphics[width=0.5\linewidth]{Rama de cerezo en tinta gris minimalista.png}}%
+}
+
+\vspace{-3.3cm}
+
+
+\begin{center}
+
+\newchessgame
+\hidemoves{1.e4 e5}\par
+\storegame{game1}
+\chessboard[
+label=false,         % <-- OCULTA LOS NÚMEROS (1-8)
+  boardfontsize=7pt,
+  setfen=k1b4r/pp6/3B4/P1n2p1q/2N5/6P1/5P2/R1R2BK1 w - - 0 20
+]
+\end{center}
+\vspace{-0.4cm}
+\begin{center}
+    {\footnotesize\textbf{Mate en 7}}
+\end{center}
+
+
+\vspace{0.1cm}
+
+\begin{tcolorbox}[
+    colback=white,          % Fondo blanco
+    colframe=black,   
+     boxrule=0.2mm,    % Borde negro
+    arc=0mm,                % Esquinas rectas (sin redondeado)
+    width=0.7\textwidth,    % Ajusta el ancho del rectángulo según lo necesites
+    halign=center,          % Centra el contenido dentro de la caja
+    valign=center,
+    center                  % Centra la caja misma en la página
+]
+    {\large\textbf{¿Te interesa colaborar?}}
+    
+    \vspace{0.2cm}
+    \footnotesize
+    
+    {\fontfamily{ppl}\selectfont Editor}
+    
+    \vspace{0.1cm}
+    {\textit{Yves Stanislas Ramírez Jiménez}}
+    
+    \vspace{0.1cm}
+    {\fontfamily{ppl}\selectfont Instagram: math\_digital.garden}
+    
+    \vspace{0.1cm}
+    {\fontfamily{ppl}\selectfont Web: Math Digital Garden}
+\end{tcolorbox}
+
+\vspace{0.1cm}
+
+\begin{center}
+    {\small Más matemáticas...}
+\end{center}
+
+\vspace{-0.1cm}
+
+\begin{center}
+       {\small \selectfont 
+    \textbf{El Semillero}\\
+    \textbf{de}\\
+    \textbf{Grothendieck}\par}
+\end{center}
+
+
+
+\end{document}

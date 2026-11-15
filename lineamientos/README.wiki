@@ -1,0 +1,51 @@
+
+= NOTA DE LOS EDITORES =
+
+Agradecemos su contribución al presente número de "El Semillero de Grothendieck".
+
+Para contribuir a la presente revista se deben seguir los lineamientos a 
+continuación:
+
+* ENTREGA:
+  - Se te han dejado comentadas las primeras líneas del archivo para que 
+  usted pueda trabajar en ellas compilándolas de forma independiente.
+  - En el momento de su entrega, por favor, comente las líneas marcadas con 
+  "% COMÉNTAME AL TERMINAR" colocando el caracter % (al principio de la línea).
+  - Es conveniente NO eliminar el presente archivo README.wiki para que usted
+  pueda leerlo una última vez al mandar su contribución. Y verifique que cumple
+  con los TODOS lineamientos.
+  - Para la ENTREGA, ÚNICAMENTE mande el archivo .tex (más la carpeta con sus
+  respectivas imágenes) a la siguiente dirección de correo electrónico:
+
+                   semillerogrothendieck@gmail.com
+
+  con título: CONTRIBUCIÓN PÁGINA N, SEMILLERO NÚMERO M.
+
+* FORMATO:
+  - Es importante que usted NO añada paqueterías adicionales al archivo de su
+  contribución (page.tex). Esto con el objeto de mantener un formato limpio y
+  consistente entre todos los escritores del presente número.
+  - Es importante que usted NO use ni fuentes, ni tipografías especiales para
+
+* IMÁGENES:
+  - Las imágenes que usted requiera deben encontrarse en el directorio images/.
+  - Si usted usará el paquete TikZ (o post-script) debe compilarlas de forma
+  previa, antes de anexarlas en su contribución. Como a continuación explicamos.
+  - Recomendamos que usted use \documentclass[tikz]{standalone} en un archivo
+  dentro de la carpeta images/ (e.g. images/mandelbrot.tex) para generar su
+  imagen deseada.
+  - Usted sí puede usar tipografías especiales en las imágenes, debido al punto
+  anterior (sus imágenes estarán precompiladas).
+  - Las imágenes tienen que ser incluidas en tu documento mediante las 
+  siguientes líneas:
+
+  {{{latex
+  \begin{center} % (optional)
+  \includegraphics[width = FLOAT, page = 1]{pages/page-NUM/images/NAME.pdf}
+  \end{center} % (opcional)
+  }}}
+
+  - FLOAT es un número entre 0 y 1 en formato decimal. (e.g. 0.5).
+  - NUM es el número de página de la revista.
+  - NAME es el nombre de la imagen a añadir.
+ archivo fuente (page.tex). 

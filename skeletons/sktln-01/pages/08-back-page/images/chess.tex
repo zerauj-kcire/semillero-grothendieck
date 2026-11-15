@@ -1,0 +1,16 @@
+\documentclass{standalone}
+\usepackage{xskak}
+\usepackage{chessboard}
+\begin{document}
+
+\newchessgame
+\hidemoves{1.e4 e5}\par
+\storegame{game1}
+\chessboard[
+label=false,         % <-- OCULTA LOS NÚMEROS (1-8)
+  boardfontsize=7pt,
+  setfen=k1b4r/pp6/3B4/P1n2p1q/2N5/6P1/5P2/R1R2BK1 w - - 0 20
+]
+
+
+\end{document}

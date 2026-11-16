@@ -14,8 +14,9 @@ continuación:
   - Es conveniente NO eliminar el presente archivo README.wiki para que usted
   pueda leerlo una última vez al mandar su contribución. Y verifique que cumple
   con los TODOS lineamientos.
-  - Para la ENTREGA, ÚNICAMENTE mande el archivo .tex (más la carpeta con sus
-  respectivas imágenes) a la siguiente dirección de correo electrónico:
+  - Para la ENTREGA, será requerido que USTED ENTREGUE UN ARCHIVO .ZIP o en su
+  defecto un ARCHIVO .TAR.GZ que contenga su artículo. 
+  - Tal archivo deberá ser enviado a la dirección de correo electrónico:
 
                    semillerogrothendieck@gmail.com
 
